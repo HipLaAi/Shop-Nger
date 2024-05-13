@@ -44,6 +44,14 @@
                             @for($i=0; $i<$item->review;$i++)
                                 <i class="fa fa-star"></i>
                             @endfor
+                            <h5>{{ $item->created_at }}</h5>
+                            @if($item->users->id == auth()->id())
+                            <form action="product/{{ $item->proid }}/{{ $item->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="reply_btn" onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục này không?')">Thu hồi</button>
+                            </form>
+                            @endif
                         </div>
                     </div>
                     <p>{{ $item->comment }}</p>

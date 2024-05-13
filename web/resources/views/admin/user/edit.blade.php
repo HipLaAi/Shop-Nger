@@ -3,24 +3,32 @@
 <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
-        <li class="breadcrumb-item">Danh sách slide</li>
-        <li class="breadcrumb-item"><a>Thêm slide</a></li>
+        <li class="breadcrumb-item">Danh sách ngươi dùng</li>
+        <li class="breadcrumb-item"><a href="">Sửa thông tin người dùng</a></li>
       </ul>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
-          <h3 class="tile-title">Tạo mới slide</h3>
+          <h3 class="tile-title">Sửa thong tin người dùng</h3>
           <div class="tile-body">
-            <form action="{{route('slide.store')}}" method="POST" class="row"
-            enctype="multipart/form-data">
+            <form action="{{ route('user.update', $user->id) }}" method="POST" class="row" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
               <div class="form-group col-md-12">
-              <label for="exampleSelect1" class="control-label">Tên slide</label>
-                <input name="name" class="form-control" type="text" required>
+                <label for="exampleSelect1" class="control-label">Tên người dùng</label>
+                <input name="name" class="form-control" type="text" value="{{ $user->name }}">
+              </div>
+              <div class="form-group col-md-12">
+                <label for="exampleSelect1" class="control-label">Email</label>
+                <input name="email" class="form-control" type="email" value="{{ $user->email }}">
+              </div>
+              <div class="form-group col-md-12">
+                <label for="exampleSelect1" class="control-label">Password</label>
+                <input name="password" class="form-control" type="password" value="{{ $user->password }}">
               </div>
               <div class="form-group col-md-12" >
-                <label class="control-label">Ảnh slide</label>
+                <label class="control-label">Ảnh user</label>
                 <div class="list-input-hidden-upload">
                     <input style="display:none" type="file" name="image" id="file_upload" class="myfrm form-control hidden">
                 </div>
@@ -28,16 +36,15 @@
                     <button class="btn btn-success btn-add-image" type="button" style="cursor: pointer;"><i class="fas fa-cloud-upload-alt"></i> Chọn ảnh</button>
                 </div>
                 <div class="list-images" style="display:flex;flex-wrap: wrap">
+                  <div class="box-image" style="position: relative; margin:6px">
+                    <img style="width: 285px;" src="images/{{ $user->avatar }}" class="picture-box">
+                    <!-- <div style="cursor: pointer; position: absolute;right: 0;top: 0;border-radius: 50%;background-color: #ff00009e;padding: 4px 11px;color: white;margin: 5px;" data-id='1' class="btn-delete-image">x</div> -->
+                  </div>
                 </div>
-              </div>
-              <div class="form-group col-md-12">
-                <label class="control-label" for="description">Mô tả slide</label>
-                <textarea name="description" class="form-control" id="description"></textarea>
               </div>
           </div>
           <button class="btn btn-save" type="submit">Lưu lại</button>
-          <a class="btn btn-cancel" href="admin/slide">Hủy bỏ</a>
-        </form>
+          <a class="btn btn-cancel" href="admin/user">Hủy bỏ</a>
     </div>
 </main>
 @endsection

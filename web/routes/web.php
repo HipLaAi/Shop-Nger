@@ -19,9 +19,9 @@ Route::group(['prefix' => ''], function(){
 //Detail
 Route::group(['prefix' => 'product'], function(){
     Route::get('{proid}', [\App\Http\Controllers\User\DetailController::class, 'index']);
-    // Route::post('{proid}', [\App\Http\Controllers\User\DetailController::class, 'review']);
     Route::get('{proid}/getsize', [\App\Http\Controllers\User\DetailController::class, 'getSize']);
     Route::get('{proid}/addreview', [\App\Http\Controllers\User\DetailController::class, 'review']);
+    Route::delete('{proid}/{reviewID}', [\App\Http\Controllers\User\DetailController::class, 'removeReview']);
 });
 
 //Shop
@@ -91,4 +91,5 @@ Route::prefix('admin') -> middleware('check') -> group( function() {
     Route::resource('blog', '\App\Http\Controllers\Admin\BlogController');
     Route::resource('order', '\App\Http\Controllers\Admin\OrderController');
     Route::resource('overview', '\App\Http\Controllers\Admin\OverviewController');
+    Route::resource('user', '\App\Http\Controllers\Admin\UserController');
 });

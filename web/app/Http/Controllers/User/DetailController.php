@@ -35,20 +35,6 @@ class DetailController extends Controller
         }
     }
 
-    // public function review(Request $request, $id){
-    //     $review = \App\Models\Review::create([
-    //         'proid' => $id,
-    //         'userid' => auth()->id(),
-    //         'review' => $request->input('rating'),
-    //         'comment' => $request->input('comment'),
-    //         'status' => 1,
-    //         'created_at' => now(),
-    //         'updated_at' => now(),
-    //     ]);
-    //     return redirect('product/' . $id);
-    // }
-
-    
     public function review(Request $request){
         if ($request->ajax()) {
             $review = \App\Models\Review::create([
@@ -75,5 +61,10 @@ class DetailController extends Controller
 
             return $response;
         }
+    }
+
+    public function removeReview($id, $reviewID){
+        $review = \App\Models\Review::find($reviewID)->delete();
+        return redirect('product/' . $id);
     }
 }

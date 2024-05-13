@@ -29,5 +29,8 @@
 
     <li><a class="app-menu__item {{ request()->segment(2) == 'blog' ? 'haha':'' }}" href="admin/blog"><i class='app-menu__icon bx bx-cog'></i>
         <span class="app-menu__label">Quản lý blog</span></a></li>
+
+    <li><a class="app-menu__item {{ request()->segment(2) == 'user' ? 'haha':'' }}" href="admin/user"><i class='app-menu__icon bx bx-user'></i>
+        <span class="app-menu__label">Quản lý người dùng</span></a></li>
 </ul>
 </aside>

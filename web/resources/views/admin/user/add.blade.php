@@ -3,24 +3,32 @@
 <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
-        <li class="breadcrumb-item">Danh sách slide</li>
-        <li class="breadcrumb-item"><a>Thêm slide</a></li>
+        <li class="breadcrumb-item">Danh sách người dùng</li>
+        <li class="breadcrumb-item"><a>Thêm người dùng</a></li>
       </ul>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
-          <h3 class="tile-title">Tạo mới slide</h3>
+          <h3 class="tile-title">Tạo mới người dùng</h3>
           <div class="tile-body">
-            <form action="{{route('slide.store')}}" method="POST" class="row"
+            <form action="{{route('user.store')}}" method="POST" class="row"
             enctype="multipart/form-data">
                 @csrf
               <div class="form-group col-md-12">
-              <label for="exampleSelect1" class="control-label">Tên slide</label>
+              <label for="exampleSelect1" class="control-label">Tên người dùng</label>
                 <input name="name" class="form-control" type="text" required>
               </div>
+              <div class="form-group col-md-12">
+              <label for="exampleSelect1" class="control-label">Email</label>
+                <input name="email" class="form-control" type="email" required>
+              </div>
+              <div class="form-group col-md-12">
+              <label for="exampleSelect1" class="control-label">Password</label>
+                <input name="password" class="form-control" type="password" required>
+              </div>
               <div class="form-group col-md-12" >
-                <label class="control-label">Ảnh slide</label>
+                <label class="control-label">Ảnh người dùng</label>
                 <div class="list-input-hidden-upload">
                     <input style="display:none" type="file" name="image" id="file_upload" class="myfrm form-control hidden">
                 </div>
@@ -30,13 +38,9 @@
                 <div class="list-images" style="display:flex;flex-wrap: wrap">
                 </div>
               </div>
-              <div class="form-group col-md-12">
-                <label class="control-label" for="description">Mô tả slide</label>
-                <textarea name="description" class="form-control" id="description"></textarea>
-              </div>
           </div>
           <button class="btn btn-save" type="submit">Lưu lại</button>
-          <a class="btn btn-cancel" href="admin/slide">Hủy bỏ</a>
+          <a class="btn btn-cancel" href="admin/user">Hủy bỏ</a>
         </form>
     </div>
 </main>

@@ -20,6 +20,7 @@
     <section class="checkout_area section_gap">
         <div class="container">
             <div class="billing_details">
+                @if($account->roleid != 1)
                 <div class="row">
                     <form class="row contact_form" action="account" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -68,6 +69,11 @@
                         </div>
                     </form>
                 </div>
+                @else
+                <div class="row" style="justify-content:center">
+                    <h3 style="color:green">Bạn đang sử dụng tài khoản với tư cách là admin</h3>
+                </div>
+                @endif
             </div>
         </div>
     </section>

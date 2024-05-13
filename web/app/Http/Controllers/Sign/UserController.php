@@ -57,6 +57,7 @@ class UserController extends Controller
         $data = request()->only('email','name');
         $data['roleid'] = 2;
         $data['password'] = bcrypt(request('password'));
+        $data['avatar'] = "171490907060.png";
 
         $user = User::create($data);
 
