@@ -85,15 +85,24 @@
                 <label class="control-label">Tổng tiền: {{number_format($order->moneytotal)}} VNĐ</label>
               </div>
               <div class="form-group col-md-4">
-                <label class="control-label">Phương thức thanh toán: {{$order->pay}}</label>
+                <label class="control-label">Phương thức thanh toán: </label>
+                  @if($order->pay == 0)
+                  <span class="badge bg-info">Thanh toán khi nhận hàng</span>
+                  @elseif($order->pay == 1)
+                  <span class="badge bg-warning">Thanh toán online</span>
+                  @endif
               </div>
               <div class="form-group col-md-4">
               <label class="control-label">Trạng thái:</label>
-              @if($order->status == 1)
-                  <span class="badge bg-success">Đang vận chuyển</span>
-              @elseif($order->status == 0)
-                  <span class="badge bg-danger">Giao hàng thành công</span>
-              @endif
+                @if($order->status == 0)
+                <span class="badge bg-info">Chờ xử lý</span>
+                @elseif($order->status == 1)
+                <span class="badge bg-warning">Đang vận chuyển</span>
+                @elseif($order->status == 2)
+                <span class="badge bg-success">Đã hoàn thành</span>
+                @elseif($order->status == 3)
+                <span class="badge bg-danger">Đã hủy</span>
+                @endif
               </div>
           </div>
     </div>

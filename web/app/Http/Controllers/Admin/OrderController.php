@@ -74,7 +74,24 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->check){
+            foreach ($request->check as $key => $id) {
+                $order = SaleBill::find($id);
+                //Check value 'action'
+                if ($request->action === 'confirm') {
+                    $order->update([
+                        'status' => 1,
+                    ]);
+                }
+                elseif ($request->action === 'cancel') {
+                    $order->update([
+                        'status' => 3,
+                    ]);
+                }
+            }
+        }
+
+        return redirect('admin/order');
     }
 
     /**
