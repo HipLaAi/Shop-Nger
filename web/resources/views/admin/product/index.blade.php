@@ -16,7 +16,7 @@
                           <a class="btn btn-add btn-sm" href="admin/product/create" title="Thêm"><i class="fas fa-plus"></i>
                             Tạo mới sản phẩm</a>
                         </div>
-                        <div class="col-sm-2">
+                        <!-- <div class="col-sm-2">
                           <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i
                               class="fas fa-file-upload"></i> Tải từ file</a>
                         </div>
@@ -40,7 +40,7 @@
                         <div class="col-sm-2">
                           <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
                               class="fas fa-trash-alt"></i> Xóa tất cả </a>
-                        </div>
+                        </div> -->
                       </div>
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
@@ -60,10 +60,10 @@
                                 <td style="text-align: center">{{$item->name}}</td>
                                 <td style="text-align: center">{{ number_format($item->productDetails->sum('quantity')) }}</td>
                                 <td style="text-align: center">
-                                    @if($item->status == 1)
+                                    @if($item->productDetails->sum('quantity') > 50)
                                         <span class="badge bg-success">Còn hàng</span>
-                                    @elseif($item->status == 0)
-                                        <span class="badge bg-danger">Hết hàng</span>
+                                    @else
+                                        <span class="badge bg-danger">Sắp hết hàng</span>
                                     @endif
                                 </td>
                                 <td style="text-align: center">{{ number_format($item->discount) }} VNĐ</td>

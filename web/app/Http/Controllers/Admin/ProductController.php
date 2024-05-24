@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
+        $product = Product::latest()->get();
         return view('admin.product.index',compact('product'));
     }
 
@@ -48,6 +48,7 @@ class ProductController extends Controller
 
         $brand = null;
         $category = null;
+        $status = 1;
 
         if($request->input('brandid') != '0'){
             $brand = $request->input('brandid');
@@ -57,6 +58,10 @@ class ProductController extends Controller
             $category = $request->input('catid');
         }
 
+        if($request->input('status') == '0'){
+            $status = 0;
+        }
+
         $product = Product::create([
             'catid' => $category,
             'brandid' => $brand,
@@ -64,7 +69,7 @@ class ProductController extends Controller
             'price' => $request->input('price'),
             'discount' => $request->input('discount'),
             'description' => $request->input('description'),
-            'status' => 1,
+            'status' => $status,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

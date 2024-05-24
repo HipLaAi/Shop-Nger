@@ -67,6 +67,8 @@ Route::group(['prefix' => 'contact'], function(){
 Route::group(['prefix' => 'account'], function(){
     Route::get('', [\App\Http\Controllers\User\AccountController::class, 'index']);
     Route::post('', [\App\Http\Controllers\User\AccountController::class, 'update']);
+    Route::get('show', [\App\Http\Controllers\User\AccountController::class, 'show']);
+    Route::post('show', [\App\Http\Controllers\User\AccountController::class, 'update_password']);
 });
 
 //Login
@@ -89,7 +91,7 @@ Route::prefix('admin') -> middleware('check') -> group( function() {
     Route::resource('product/{proid}/detail', '\App\Http\Controllers\Admin\ProductDetailController');
     Route::resource('slide', '\App\Http\Controllers\Admin\SlideController');
     Route::resource('blog', '\App\Http\Controllers\Admin\BlogController');
-    Route::resource('order', '\App\Http\Controllers\Admin\OrderController');
     Route::resource('overview', '\App\Http\Controllers\Admin\OverviewController');
     Route::resource('user', '\App\Http\Controllers\Admin\UserController');
+    Route::resource('order', '\App\Http\Controllers\Admin\OrderController');
 });

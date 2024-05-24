@@ -54,10 +54,10 @@
                 <input value="{{$product->name}}" name="name" class="form-control" type="text">
               </div>
               <div class="form-group col-md-3">
-                  <label for="exampleSelect1" class="control-label">Tình trạng</label>
+                  <label for="exampleSelect1" class="control-label">Trạng thái sản phẩm</label>
                   <select name="status" class="form-control" id="exampleSelect1">
-                      <option value="1" {{ $product->status == 1 ? 'selected' : '' }}>Còn hàng</option>
-                      <option value="0" {{ $product->status == 0 ? 'selected' : '' }}>Hết hàng</option>
+                      <option value="0" {{ $product->status == 0 ? 'selected' : '' }}>Áp dụng ưu đãi</option>
+                      <option value="1" {{ $product->status == 1 ? 'selected' : '' }}>Không</option>
                   </select>
               </div>
               <div class="form-group col-md-3">

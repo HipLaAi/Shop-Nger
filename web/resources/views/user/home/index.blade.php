@@ -96,7 +96,7 @@
 				</div>
 				<div class="col-lg-6 no-padding exclusive-right">
 					<div class="active-exclusive-product-slider">
-						@foreach($product as $item)
+						@foreach($productSale as $item)
 						<!-- single exclusive carousel -->
 						<div class="single-exclusive-slider">
 							<img class="img-fluid" src="images/{{ $item->images[0]->image }}" alt="">

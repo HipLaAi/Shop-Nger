@@ -12,7 +12,7 @@
             <div class="col-lg-12">
                 <div class="row">
                     
-                @foreach($product as $item)
+                @foreach($productDiscount as $item)
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
                             <a href="#"><img style="width:70px; height:70px" src="images/{{ $item->images[0]->image }}" alt=""></a>

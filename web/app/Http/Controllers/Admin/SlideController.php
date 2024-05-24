@@ -16,7 +16,7 @@ class SlideController extends Controller
      */
     public function index()
     {
-        $slide = Slide::all();
+        $slide = Slide::latest()->get();
         return view('admin.slide.index',compact('slide'));
     }
 

@@ -123,14 +123,19 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
                                 <td>
-                                    <div class="cupon_text d-flex align-items-center">
+                                    <h5>Phí vận chuyển: </h5>
+                                </td>
+                                <td>
+                                    <h5>0,0</h5>
+                                </td>
+                                <td>
+                                    <h5>VNĐ</h5>
+                                    <!-- <div class="cupon_text d-flex align-items-center">
                                         <input type="text" placeholder="Mã giảm giá">
                                         <a class="primary-btn">Áp dụng</a>
                                         <a class="gray_btn">Đóng</a>
-                                    </div>
+                                    </div> -->
                                 </td>
                             </tr>
 

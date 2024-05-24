@@ -3,8 +3,8 @@
 <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
-        <li class="breadcrumb-item">Danh sách đơn đặt hàng</li>
-        <li class="breadcrumb-item"><a href="#">Chi tiết đơn đặt hàng</a></li>
+        <li class="breadcrumb-item"><a href="admin/order">Danh sách đơn đặt hàng</a></li>
+        <li class="breadcrumb-item"><a>Chi tiết đơn đặt hàng</a></li>
       </ul>
     </div>
     <div class="row">
@@ -12,7 +12,7 @@
         <div class="tile">
           <h3 class="tile-title">Chi tiết đơn đặt hàng</h3>
           <div class="tile-body">
-            <div class="row element-button">
+            <!-- <div class="row element-button">
               <div class="col-sm-2">
                 <a class="btn btn-add btn-sm" href="admin/category/create"><i
                     class="fas fa-folder-plus"></i> Thêm danh mục</a>
@@ -27,7 +27,7 @@
               <div class="col-sm-2">
                 <a class="btn btn-add btn-sm" href=""><i class="fa fa-info-circle"></i> Chi tiết ảnh</a>
               </div>
-            </div>
+            </div> -->
 
             <table class="table table-hover table-bordered" id="sampleTable">
               <thead>
@@ -53,7 +53,9 @@
                   @endforeach     
               </tbody>
            </table>
-           <form action="" class="row">
+           <form action="{{ route('order.update', $order->id) }}" class="row" method="POST" enctype="multipart/form-data">
+           @csrf
+           @method('PATCH')
               <div class="form-group col-md-4">
                 <label class="control-label">Tên khách hàng: {{$order->fullname}}</label>
               </div>
@@ -94,16 +96,25 @@
               </div>
               <div class="form-group col-md-4">
               <label class="control-label">Trạng thái:</label>
-                @if($order->status == 0)
-                <span class="badge bg-info">Chờ xử lý</span>
-                @elseif($order->status == 1)
-                <span class="badge bg-warning">Đang vận chuyển</span>
-                @elseif($order->status == 2)
-                <span class="badge bg-success">Đã hoàn thành</span>
-                @elseif($order->status == 3)
-                <span class="badge bg-danger">Đã hủy</span>
-                @endif
-              </div>
+              <select name="status" id="" class="form-control-sm" onchange="this.form.submit()" 
+    style="border:0; background-color:
+    @if ($order->status == 1)
+        #b6bef5 
+    @elseif ($order->status == 2)
+        #f2f98a 
+    @elseif ($order->status == 3)
+        #bfefc4 
+    @elseif ($order->status == 4)
+        #f9c9cd 
+    @else
+        #ffffff /* Màu nền mặc định */
+    @endif">
+    <option value="1" class="badge bg-info" {{ $order->status == 1 ? 'selected' : '' }}>Chờ xử lý</option>
+    <option value="2" class="badge bg-warning" {{ $order->status == 2 ? 'selected' : '' }}>Đang vận chuyển</option>
+    <option value="3" class="badge bg-success" {{ $order->status == 3 ? 'selected' : '' }}>Đã hoàn thành</option>
+    <option value="4" class="badge bg-danger" {{ $order->status == 4 ? 'selected' : '' }}>Đã hủy</option>
+</select>
+
           </div>
     </div>
 </main>

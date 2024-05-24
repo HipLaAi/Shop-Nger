@@ -42,7 +42,7 @@ class UserController extends Controller
             }
         }
 
-        return redirect()->back()->with('error', 'Email or password is wrong');
+        return redirect()->back()->with('error', 'Email hoặc mật khẩu không hợp lệ');
     }    
     
     
@@ -71,6 +71,6 @@ class UserController extends Controller
             ]);
         }
 
-        return redirect()->route('login')->with('success', 'Account successfully created');
+        return redirect()->route('login')->with('success', 'Bạn đã đăng ký tài khoản thành công');
     }
 }

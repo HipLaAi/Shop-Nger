@@ -109,7 +109,7 @@
                                 </ul>
                                 <div class="payment_item">
                                     <div class="radion_btn">
-                                        <input type="radio" id="f-option5" name="pay" value="0">
+                                        <input type="radio" id="f-option5" name="pay" value="0" required>
                                         <label for="f-option5">thanh toán sau</label>
                                         <div class="check"></div>
                                     </div>
@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="payment_item active">
                                     <div class="radion_btn">
-                                        <input type="radio" id="f-option6" name="pay" value="1">
+                                        <input type="radio" id="f-option6" name="pay" value="1" required>
                                         <label for="f-option6">thanh toán trực tuyến</label>
                                         <img src="user/img/product/card.jpg" alt="" style="right: 0;">
                                         <div class="check"></div>
@@ -125,7 +125,7 @@
                                     <p>Thanh toán qua thẻ tín dụng</p>
                                 </div>
                                 <div class="creat_account">
-                                    <input type="checkbox" id="f-option4" name="selector">
+                                    <input type="checkbox" id="f-option4" name="selector" required>
                                     <label for="f-option4" style="font-size:11px">Tôi đã đọc và chấp nhận</label>
                                     <a href="#" style="font-size:11px">các điều khoản và điều kiện*</a>
                                 </div>

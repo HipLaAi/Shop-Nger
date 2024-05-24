@@ -18,9 +18,10 @@ class HomeController extends Controller
             $love = \App\Models\LoveList::where('userid', auth()->id())->first();
             $loveDetail = \App\Models\LoveListDetail::where('loveid', $love->id)->get();
         }
-        $product = \App\Models\Product::all();
+        $productSale = \App\Models\Product::where('status',0)->take(9)->get();
+        $productDiscount = \App\Models\Product::whereColumn('price', '>', 'discount')->latest()->take(6)->get();
         $latestProduct = \App\Models\Product::latest()->take(8)->get();
-        $slide = \App\Models\Slide::all();
+        $slide = \App\Models\Slide::limit(5)->get();
         $category = \App\Models\Category::limit(8)->get();
         $brand = \App\Models\Brand::limit(6)->get();
         $mostLovedProducts = \App\Models\Product::select('p.id','p.name','p.price','p.discount', \DB::raw('count(l.proid) as love_count'))
@@ -39,6 +40,6 @@ class HomeController extends Controller
                                                     ->take(8)
                                                     ->get();
 
-        return view ('user.home.index', compact('loveDetail','cartDetail','bestSellingProducts','mostLovedProducts','latestProduct','product', 'slide', 'category', 'brand'));
+        return view ('user.home.index', compact('loveDetail','cartDetail','bestSellingProducts','mostLovedProducts','latestProduct','productSale', 'slide', 'category', 'brand','productDiscount'));
     }    
 }

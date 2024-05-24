@@ -113,7 +113,8 @@ function addReview(proid, comment) {
             for (var i = 0; i < response['reviews']['review']; i++) {
                 reviewItem += '<i class="fa fa-star"></i>';
             }
-            reviewItem += '</div>' +
+            reviewItem += '<h5>'+ response['time'] +'</h5>' +
+            '</div>' +
                 '</div>' +
                 '<p>' + response['reviews']['comment'] + '</p>' +
                 '</div>';

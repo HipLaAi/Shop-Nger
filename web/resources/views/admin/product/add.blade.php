@@ -14,12 +14,12 @@
           <div class="tile-body">
           <div class="row element-button">
               <div class="col-sm-2">
-                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#addsize"><i
-                    class="fas fa-folder-plus"></i>Thêm kích cỡ</a>
+                <a class="btn btn-add btn-sm" href="admin/category/create"><i
+                    class="fas fa-folder-plus"></i> Thêm danh mục</a>
               </div>
               <div class="col-sm-2">
-                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#addcolor"><i
-                    class="fas fa-folder-plus"></i>Thêm màu sắc</a>
+                <a class="btn btn-add btn-sm" href="admin/brand/create"><i
+                    class="fas fa-folder-plus"></i> Thêm thương hiệu</a>
               </div>
             </div>
           <form action="{{route('product.store')}}" method="POST" class="row"
@@ -54,6 +54,13 @@
               <div class="form-group col-md-4">
                 <label class="control-label">Giá khuyến mại</label>
                 <input name="discount" class="form-control" type="number">
+              </div>
+              <div class="form-group col-md-4">
+              <label for="exampleSelect2" class="control-label">Trạng thái sản phẩm</label>
+              <select name="status" class="form-control" id="exampleSelect2">
+                    <option value="1">Không</option>
+                    <option value="0">Áp dụng ưu đãi</option>
+              </select>
               </div>
               <!-- Start Add -->
               <div class="form-group col-md-12" id="add_product_detail" style="padding:0"></div>

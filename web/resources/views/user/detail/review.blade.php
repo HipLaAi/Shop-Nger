@@ -44,7 +44,7 @@
                             @for($i=0; $i<$item->review;$i++)
                                 <i class="fa fa-star"></i>
                             @endfor
-                            <h5>{{ $item->created_at }}</h5>
+                            <h5>{{ $item->created_at->format('Y-m-d') }}</h5>
                             @if($item->users->id == auth()->id())
                             <form action="product/{{ $item->proid }}/{{ $item->id }}" method="POST">
                                 @csrf

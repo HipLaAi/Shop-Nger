@@ -76,13 +76,13 @@
                       <td>{{ number_format($item->moneytotal) }}</td>
                       <td>{{ $item->created_at }}</td>
                       <td>
-                        @if($item->status == 0)
+                        @if($item->status == 1)
                           <span class="badge bg-info">Chờ xử lý</span>
-                        @elseif($item->status == 1)
-                          <span class="badge bg-warning">Đang vận chuyển</span>
                         @elseif($item->status == 2)
-                          <span class="badge bg-success">Đã hoàn thành</span>
+                          <span class="badge bg-warning">Đang vận chuyển</span>
                         @elseif($item->status == 3)
+                          <span class="badge bg-success">Đã hoàn thành</span>
+                        @elseif($item->status == 4)
                           <span class="badge bg-danger">Đã hủy</span>
                         @endif
                       </td>

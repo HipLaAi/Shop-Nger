@@ -10,11 +10,17 @@
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
-            <form action="{{ route('order.update', 0) }}" method="POST">
+                <div class="tile-body">
+                <form action="{{ route('order.update', 0) }}" method="POST">
                 @csrf
                 @method('PUT')
-                <div class="tile-body">
                     <div class="row element-button">
+                        <div class="col-sm-2">
+                            <a class="btn btn-delete btn-sm print-file" title="Xuất execl" data-toggle="modal" data-target="#filter">
+                            <i class="fas fa-filter"></i> 
+                                Lọc dữ liệu</a>
+                        </div>
+
                         <div class="col-sm-2">
                           <button class="btn btn-add btn-sm" title="Xác nhận" type="submit" name="action" value="confirm">
                             <i class="fas fa-check"></i>
@@ -26,29 +32,32 @@
                             <i class="fas fa-times"></i> 
                             Hủy đơn hàng</button>
                         </div>
+            
+                        <div class="col-sm-2">
+                            <button class="btn btn-excel btn-sm" type="submit" title="Xuất excel" name="action" value="export">
+                            <i class="fas fa-file-excel"></i> 
+                                Xuất Excel</button>
+                        </div>
 
                         <div class="col-sm-2">
-                          <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i
-                              class="fas fa-file-upload"></i> Tải từ file</a>
+                            <button class="btn btn-delete btn-sm pdf-file" type="submit" title="In" name="action" value="print">
+                                <i class="fas fa-file-pdf"></i> 
+                                Xuất PDF</button>
                         </div>
-          
+
                         <div class="col-sm-2">
-                          <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
-                              class="fas fa-print"></i> In dữ liệu</a>
+                            <button class="btn btn-delete btn-sm" type="submit" title="Xóa" name="action" value="delete" style="color: black">
+                                <i class="fas fa-trash-alt"></i> 
+                                Xóa tất cả </button>
                         </div>
-          
-                        <div class="col-sm-2">
-                          <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất Excel</a>
-                        </div>
-                        <div class="col-sm-2">
-                          <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i
-                              class="fas fa-file-pdf"></i> Xuất PDF</a>
-                        </div>
-                        <div class="col-sm-2">
-                          <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
-                              class="fas fa-trash-alt"></i> Xóa tất cả </a>
-                        </div>
-                      </div>
+
+                        <!-- <div class="col-sm-2">
+                            <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập">
+                            <i class="fas fa-file-upload"></i> 
+                                Tải từ file</a>
+                        </div> -->
+
+                    </div>
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                             <tr>
@@ -73,13 +82,13 @@
                                 <td style="text-align: center">{{$item->ward}} - {{$item->district}} - {{$item->province}}</td>
                                 <td style="text-align: center">{{ number_format($item->moneytotal) }} VNĐ</td>
                                 <td style="text-align: center">
-                                    @if($item->status == 0)
+                                    @if($item->status == 1)
                                     <span class="badge bg-info">Chờ xử lý</span>
-                                    @elseif($item->status == 1)
-                                    <span class="badge bg-warning">Đang vận chuyển</span>
                                     @elseif($item->status == 2)
-                                    <span class="badge bg-success">Đã hoàn thành</span>
+                                    <span class="badge bg-warning">Đang vận chuyển</span>
                                     @elseif($item->status == 3)
+                                    <span class="badge bg-success">Đã hoàn thành</span>
+                                    @elseif($item->status == 4)
                                     <span class="badge bg-danger">Đã hủy</span>
                                     @endif
                                 </td>
@@ -92,12 +101,15 @@
                             @endforeach     
                         </tbody>
                     </table>
+                </form>
                 </div>
-            </form>
             </div>
         </div>
     </div>
 </main>
+
+@include('admin.modal.export')
+
 @endsection
 
 @section('script')

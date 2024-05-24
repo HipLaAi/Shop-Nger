@@ -49,6 +49,7 @@ class DetailController extends Controller
             $response['name'] = $review->users->name;
             $response['avatar'] = $review->users->avatar;
             $response['reviews'] = $review;
+            $response['time'] = $review->created_at->format('Y-m-d');
 
             $review = \App\Models\Review::where('proid','=',$request->proid)->get();
             $response['avg'] = number_format($review->avg('review'),1);
