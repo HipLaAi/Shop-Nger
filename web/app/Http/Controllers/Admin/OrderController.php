@@ -205,6 +205,7 @@ class OrderController extends Controller
             $html .= '<h4> Số điện thoại:'. htmlspecialchars($order->phone) .'</h4>';
             $html .= '<h4> Địa điểm:'. htmlspecialchars($order->ward . ' - ' . $order->district . ' - ' . $order->province) .'</h4>';
             $html .= '<h4> Ghi chú:'. htmlspecialchars($order->address) .'</h4>';
+            $html .= '<h4> Ngày mua:'. htmlspecialchars($order->created_at) .'</h4>';
             $html .= '<h4> Tổng tiền:'. htmlspecialchars(number_format($order->moneytotal) . 'VNĐ') .'</h4>';
             $html .= '<h4> Thanh toán:'. htmlspecialchars($pay) .'</h4>';  
             $html .= '<table>';

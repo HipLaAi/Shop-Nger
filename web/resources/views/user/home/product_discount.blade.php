@@ -3,8 +3,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 text-center">
                 <div class="section-title">
-                    <h1>Ưu đãi trong tuần</h1>
-                    <p>Khám Phá Siêu Ưu Đãi Trong Tuần: Hòa Mình Trong Biển Sắc Màu Sắc Động!</p>
+                    <h1>Sản phẩm khuyến mãi</h1>
+                    <p>Sản phẩm khuyến mãi: Hòa Mình Trong Biển Sắc Màu Sắc Động!</p>
                 </div>
             </div>
         </div>

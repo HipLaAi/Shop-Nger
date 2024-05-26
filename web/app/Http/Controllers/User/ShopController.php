@@ -44,7 +44,8 @@ class ShopController extends Controller
         $product = $this->filter($request,$product)->paginate($this->perPage($request));
         $category = \App\Models\Category::limit(8)->get();
         $brand = \App\Models\Brand::limit(6)->get();
-        return view('user.shop.index', compact('loveDetail','cartDetail','brand','category','product'));
+        $productDiscount = \App\Models\Product::whereColumn('price', '>', 'discount')->latest()->take(6)->get();
+        return view('user.shop.index', compact('loveDetail','cartDetail','brand','category','product','productDiscount'));
     }
 
     public function category(Request $request, $catid){   
